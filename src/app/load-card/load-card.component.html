@@ -1,0 +1,38 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+        <p class="title">
+        Load Card
+        </p>
+        <div>
+            <!-- <button mat-raised-button class="m-1" *ngFor="let cash of cashDenominations">{{cash}}</button> -->
+            <form [formGroup]="loadCardForm">
+                <!-- <label for="load-amount">Load Amount: </label>
+                <input id="load-amount" type="text" formControlName="loadAmount" required>
+
+                <label for="payment">Payment: </label>
+                <input id="payment" type="text" formControlName="payment" required> -->
+                <mat-form-field>
+                    <mat-label>Load Amount</mat-label>
+                    <mat-select formControlName="loadAmount">
+                      <mat-option *ngFor="let cash of cashDenominations" [value]="cash">
+                        {{cash}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Payment</mat-label>
+                  <input matInput placeholder="100" formControlName="payment">
+                </mat-form-field>
+                <div>
+                  <button mat-raised-button type="submit" (click)="onLoadCard()" [disabled]=" !(loadAmount || payment) || (loadAmount > payment)">Load Card</button>
+                </div>
+            </form>
+            <div *ngIf="hasLoaded" class="mt-4">
+              <h1>Change: {{change}}</h1>
+            </div>
+            <!-- <div>
+                {{payment}}
+            </div> -->
+        </div>
+    </div>
+  </section>

@@ -1,0 +1,34 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+        <p class="title">
+        Create Card
+        </p>
+        <p class="subtitle">
+        Create a card.
+        </p>
+        <form [formGroup]="createCardForm">
+            <div>
+                <button 
+                    class="m-1" 
+                    mat-raised-button *ngFor="let card of cardOptions"
+                    (click)="selectCard(card)">{{card.name}}</button>
+            </div>
+            <div class="m-1" *ngIf="selectedCard.name">
+                <p>Selected Card: {{selectedCard.name}}</p>
+            </div>
+            <div *ngIf="selectedCard.cardTypeId == 2">
+                    <mat-form-field>
+                        <mat-label for="id-no">Senior / PWD Id No.</mat-label>
+                        <input id="id-no" matInput formControlName="idNo" placeholder="12-3456-7890">
+                    </mat-form-field>
+            </div>
+            <button 
+                [disabled]="(!createCardForm.valid && selectedCard.cardTypeId == 2)
+                            || (selectedCard.cardTypeId == 2 && idNo == '')
+                            || selectedCard.cardTypeId < 1"
+                class="m-1" mat-raised-button 
+                type="submit" 
+                form="createCardForm" (click)="createCard()">Submit</button>
+        </form>
+    </div>
+</section>

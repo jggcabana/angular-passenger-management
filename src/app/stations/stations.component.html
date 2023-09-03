@@ -1,0 +1,26 @@
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="mb-4">
+            <p class="title">
+            From station
+            </p>
+            <div>
+                <fieldset [disabled]="card?.inTransit">
+                    <button mat-raised-button class="m-1 " *ngFor="let station of stationList"
+                    (click)="enterStation()">{{station.name}}</button>
+                </fieldset>
+            </div>
+        </div>
+        <div>
+            <p class="title">
+                To station
+                </p>
+                <div>
+                    <fieldset [disabled]="!card?.inTransit">
+                        <button mat-raised-button class="m-1 " *ngFor="let station of stationList"
+                        (click)="exitStation()">{{station.name}}</button>
+                    </fieldset>
+                </div>
+        </div>
+    </div>
+  </section>

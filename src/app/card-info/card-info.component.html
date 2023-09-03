@@ -1,0 +1,11 @@
+<section class="hero is-primary" *ngIf="card">
+    <div class="hero-body">
+        <p class="title">
+        Card Info
+        </p>
+        <p>Card Id: {{card.id}}</p>
+        <p>Current Balance: {{card.currentBalance}}</p>
+        <p>Last Used: {{card.lastUsed ? (card.lastUsed | date:"dd MMM YYYY") : 'N/A'}}</p>
+        <p>In transit? {{card.inTransit ? "Yes" : "No"}}</p>
+    </div>
+</section>
