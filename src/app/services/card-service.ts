@@ -31,6 +31,7 @@ export class CardService {
     fetchCards() : void {
         // TODO : refresh this once selected card changes
         this.http.get<Card[]>(`${API_URL}/cards`)
+            .pipe(catchError(this.handleError))
             .subscribe(cards => this.refreshCardTable(cards));
     }
 
@@ -40,11 +41,13 @@ export class CardService {
         };
 
         this.http.post<Card>(`${API_URL}/cards/${id}/load-card`, body)
+            .pipe(catchError(this.handleError))
             .subscribe(card => this.changeCard(card));
     }
 
     exitStation(id:number) : void {
         this.http.post<Card>(`${API_URL}/cards/${id}/exit-station`, {})
+            .pipe(catchError(this.handleError))
             .subscribe(card => {
                 this.changeCard(card);
                 this.fetchCards();
@@ -53,6 +56,7 @@ export class CardService {
 
     enterStation(id:number) : void {
         this.http.post<Card>(`${API_URL}/cards/${id}/enter-station`, {})
+            .pipe(catchError(this.handleError))
             .subscribe(card => {
                 this.changeCard(card);
                 this.fetchCards();
@@ -66,6 +70,7 @@ export class CardService {
         };
 
         this.http.post<Card>(`${API_URL}/cards`, body)
+            .pipe(catchError(this.handleError))
             .subscribe(card => this.fetchCards());
     }
 
