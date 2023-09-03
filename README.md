@@ -1,27 +1,15 @@
-# QlessWeb
+# Qless-Web
+This project was created with the intent of meeting the requirements of Section D of the *Cambridge Machine Problem*, as well as a demonstration of angular knowledge. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+## Pre-requisites
+- [node.js](https://nodejs.org/en/download/)
+- [angular-cli](https://www.npmjs.com/package/@angular/cli) (After installing node, run `npm install -g @angular/cli` in a terminal window.
 
-## Development server
+## Local Machine Setup
+1. Navigate to the root folder (there should be an `angular.json` file) and run `npm install` in a terminal. This will install the necessary `node_modules` for the application to start.
+2. Run `ng serve --port 4200 -o` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files. Be sure to run the API project that this app will consume.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Other Technology Considerations
+1. CSS Frameworks 
+	- [bulma.io](https://bulma.io/), a lightweight alternative to popular CSS frameworks. I chose this as I only needed a bare-bones UI to simulate the application.
+	- [Angular Material](https://material.angular.io/), an angular component library for out-of-the-box components like forms and tables.
